@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal website of Jhayron S. Pérez-Carrasquilla, PhD." />
+  <title>Jhayron S. Pérez-Carrasquilla</title>
+  <link rel="icon" href="icon.png" type="image/png" />
+
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --text: #202124;
+      --muted: #5f6368;
+      --line: #dedad2;
+      --accent: #b46a1f;
+      --accent-soft: #f3dfc5;
+      --card: #ffffff;
+      --nav: #222222;
+      --shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+      --radius: 18px;
+      --max-width: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a {
+      color: #6b3d12;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover { color: #a85f18; }
+
+    header {
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.58)),
+        url(fig4.avif);
+      background-size: cover;
+      background-position: center 42%;
+      color: white;
+      padding: 78px 22px 70px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.05rem, 5vw, 3.7rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      text-shadow: 0 3px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    .subtitle {
+      margin: 0 auto 14px;
+      font-size: clamp(1rem, 2.1vw, 1.35rem);
+      max-width: 850px;
+      color: rgba(255, 255, 255, 0.95);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .email-line {
+      margin: 0 auto 20px;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.96);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+    }
+
+    .email-line a { color: white; font-weight: 700; }
+
+    .hero-blurb {
+      margin: 0 auto 24px;
+      max-width: 850px;
+      font-size: 1.02rem;
+      color: rgba(255, 255, 255, 0.93);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .hero-links a,
+    .button-link {
+      display: inline-block;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: #1f1f1f;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero-links a:hover,
+    .button-link:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: rgba(34, 34, 34, 0.96);
+      backdrop-filter: blur(10px);
+      padding: 10px 8px;
+      text-align: center;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 4px 9px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    nav a:hover { color: #ffd78d; }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 34px 20px 55px;
+    }
+
+    section { margin-bottom: 36px; }
+
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin: 0 0 15px;
+      font-size: 1.65rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 1.08rem;
+    }
+
+    p { margin-top: 0; }
+
+    .lead {
+      font-size: 1.06rem;
+      color: #303134;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .mini-card {
+      background: #fffdf9;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 18px;
+    }
+
+    .mini-card h3 {
+      margin-top: 0;
+      color: #2b2118;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      background: var(--accent-soft);
+      color: #5b3412;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      border-left: 4px solid var(--accent);
+      background: #fffdf9;
+      border-radius: 0 14px 14px 0;
+      padding: 14px 18px;
+      border-top: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline-item .role {
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .timeline-item .place {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 7px;
+    }
+
+    .timeline-item ul,
+    .compact-list {
+      margin: 8px 0 0 20px;
+      padding: 0;
+    }
+
+    .timeline-item li,
+    .compact-list li { margin-bottom: 5px; }
+
+    .publications,
+    .awards {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .publications li,
+    .awards li {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .publications li:last-child,
+    .awards li:last-child { border-bottom: none; }
+
+    .paper-title { font-weight: 700; }
+
+    .paper-status {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #5b3412;
+      background: var(--accent-soft);
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-right: 6px;
+      white-space: nowrap;
+    }
+
+    .paper-link {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .link-missing {
+      display: inline-block;
+      color: #8a3c10;
+      background: #fff3df;
+      border: 1px dashed #d7a064;
+      border-radius: 999px;
+      padding: 1px 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .social-links {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .social-links li a {
+      display: inline-block;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #3e230d;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid #e9c897;
+    }
+
+    .social-links li a:hover { background: #f7cf91; }
+
+    .contact-box {
+      margin-top: 18px;
+      background: #fffdf9;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 16px 18px;
+    }
+
+    .pub-badge {
+      display: inline-block;
+      margin-right: 0.45rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(244, 172, 3, 0.18);
+      color: #4f3b00;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      vertical-align: 0.08em;
+    }
+
+    footer {
+      background: var(--nav);
+      color: white;
+      text-align: center;
+      padding: 18px 12px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 760px) {
+      header { padding: 62px 18px 54px; }
+      nav { position: static; }
+      main { padding: 24px 14px 45px; }
+      .section-card { padding: 20px; }
+      .grid-two { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="hero-content">
+      <h1>Jhayron S. Pérez-Carrasquilla</h1>
+      <p class="subtitle">Postdoctoral Scholar, UChicago Data Science Institute | AICE: AI for Climate | Earth System Prediction &amp; Machine Learning</p>
+      <p class="email-line">Email: <a href="mailto:jspecar@gmail.com">jspecar@gmail.com</a></p>
+      <p class="hero-blurb">I develop and apply machine learning to improve subseasonal-to-seasonal forecasts and understand the physical processes that shape predictability and uncertainty.</p>
+      <div class="hero-links">
+        <a href="mailto:jspecar@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?hl=es&amp;user=lzLdYv0AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://github.com/jhayron-perez" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://orcid.org/0000-0001-9672-8490" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://www.linkedin.com/in/jhayron-s-p%C3%A9rez-carrasquilla-b7930321a/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#experience">Experience</a>
+    <a href="#awards">Awards</a>
+    <a href="#connect">Connect/CV</a>
+  </nav>
+
+  <main>
+    <section id="about" class="section-card">
+      <h2>About</h2>
+      <p class="lead">I am a Postdoctoral Scholar at the <a href="https://datascience.uchicago.edu/" target="_blank" rel="noopener">UChicago Data Science Institute</a> within the <a href="https://datascience.uchicago.edu/research/aice-ai-for-climate/" target="_blank" rel="noopener">AICE: AI for Climate Initiative</a>, working at the intersection of AI and Earth system prediction. My research develops and applies machine learning to improve subseasonal-to-seasonal (S2S) forecasts, while using scientific insight to understand the physical processes that shape predictability and uncertainty.</p>
+      <p>I completed my PhD in Atmospheric and Oceanic Science at the University of Maryland. My work spans predictability across timescales, from subseasonal forecasting to longer-term climate variability and change, with particular interests in large-scale circulation, tropical variability, extreme events, and process-oriented climate science.</p>
+      <p>Across academic, public-sector, and applied research settings, I have worked on subseasonal prediction, air quality, extreme events, renewable-energy forecasting, and climate risk. I combine Earth system models, reanalyses, observations, and data-driven approaches—including tree-based models, deep learning, explainable AI, and causal discovery—to investigate both predictive skill and its physical basis.</p>
+      <p>I contribute to international efforts at the intersection of climate science and AI, including the <a href="https://wcrp-cmip.org/cmip7-task-teams/fresh-eyes-on-cmip/" target="_blank" rel="noopener">WCRP Fresh Eyes on CMIP initiative</a> and the <a href="https://www.ametsoc.org/stac/committees/committee-on-artificial-intelligence-applications-to-environmental-science/" target="_blank" rel="noopener">AMS Committee on AI Applications to Environmental Science</a>. I was also an ASP Graduate Visitor at <a href="https://edec.ucar.edu/advanced-study-program/graduate-visitor-program" target="_blank" rel="noopener">NSF NCAR</a>, where I studied large-scale circulation changes and associated extremes. Broadly, I am interested in building AI-enabled prediction systems that are scientifically grounded, interpretable, and useful for understanding a complex and changing Earth system.</p>
+      <p>I earned bachelor’s and master’s degrees from the <a href="https://medellin.unal.edu.co/" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>. Outside research, I enjoy sports, music, movies, and reading.</p>
+    </section>
+
+    <section id="research" class="section-card">
+      <h2>Research</h2>
+      <div class="grid-two">
+        <div class="mini-card">
+          <h3>Predictability across timescales</h3>
+          <p>I study the sources and limits of atmospheric predictability, especially for North American weather regimes at subseasonal-to-seasonal lead times. This work uses machine learning, Earth system reanalyses, and coupled model output to diagnose when and why useful forecast information emerges.</p>
+        </div>
+        <div class="mini-card">
+          <h3>Large-scale circulation and extremes</h3>
+          <p>I analyze how large-scale circulation patterns vary across observations and models, how they shape extreme heat and other impacts, and how their behavior may change in a warming climate.</p>
+        </div>
+        <div class="mini-card">
+          <h3>Causal and interpretable machine learning</h3>
+          <p>I use explainable AI and causal discovery methods to connect predictive models with physical interpretation, including work on dynamical precursors of extreme events from gridded Earth system data.</p>
+        </div>
+        <div class="mini-card">
+          <h3>Applied forecasting experience</h3>
+          <p>Before and alongside my PhD, I worked on applied forecasting problems involving air quality, streamflow, meteorological variables, renewable-energy resources, and hurricane risk products for public and private-sector decision-making.</p>
+        </div>
+      </div>
+      <div class="tag-list" aria-label="Research methods and interests">
+        <span class="tag">Subseasonal prediction</span>
+        <span class="tag">Weather regimes</span>
+        <span class="tag">Extreme events</span>
+        <span class="tag">Machine learning</span>
+        <span class="tag">Causal discovery</span>
+        <span class="tag">Large ensembles</span>
+        <span class="tag">Reanalysis</span>
+        <span class="tag">Satellite and radar data</span>
+      </div>
+    </section>
+
+  <section id="publications" class="section-card">
+    <h2>Publications</h2>
+    <ul class="publications">
+      <li>
+        <span class="pub-badge">Preprint</span>
+        Pérez-Carrasquilla, J. S., Nichol, J. J., Robledo, V., Bull, D., Dagon, K., Evans, M. N., et al. (2026). <span class="paper-title">Tracing the space-time causal origins of Earth system extremes</span>. <em>arXiv preprint</em>, arXiv:2607.10033. <a class="paper-link" href="https://arxiv.org/abs/2607.10033" target="_blank" rel="noopener">Web access</a>.
+      </li>
+      <li>
+        <span class="pub-badge">Preprint</span>
+        Nichol, J. J., Weylandt, M., Fricke, G. M., Pérez-Carrasquilla, J. S., &amp; Moses, M. E. (2026). <span class="paper-title">M-CaStLe: Uncovering Local Causal Structures in Multivariate Space-Time Gridded Data</span>. <em>arXiv preprint</em>, arXiv:2605.00398. <a class="paper-link" href="https://arxiv.org/abs/2605.00398" target="_blank" rel="noopener">Web access</a>.
+      </li>
+      <li>
+        Katzenberger, A., Pérez-Carrasquilla, J. S., Gemmell, K., Galytska, E., Leclerc, C., P., P., Roy, I., Varuolo-Clarke, A., Tošić, M., &amp; Črnivec, N. (2026). <span class="paper-title">Developing Guidelines for Working with Multi-Model Ensembles in CMIP</span>. <em>Earth System Dynamics</em>. <a class="paper-link" href="https://esd.copernicus.org/articles/17/495/2026/" target="_blank" rel="noopener">Web access</a>.
+      </li>
+
+      <li>
+        Furtado, J. C., Molina, M. J., Arcodia, M. C., Anderson, W., Beucler, T., Callahan, J. A., Ciasto, L., Gensini, V., L’Heureux, M., Pegion, K., Pérez-Carrasquilla, J. S., Sonnewald, M., Takahashi, K., Xiang, B., &amp; Zimmerman, B. (2026). <span class="paper-title">Setting the Standard: Recommended Practices for Data Preprocessing in Data-Driven Climate Prediction</span>. <em>Bulletin of the American Meteorological Society</em>, BAMS-D-24-0292.1. <a class="paper-link" href="https://journals.ametsoc.org/view/journals/bams/aop/BAMS-D-24-0292.1/BAMS-D-24-0292.1.xml" target="_blank" rel="noopener">Web access</a>.
+      </li>
+
+      <li>
+        Wichrowski, L., Pérez-Carrasquilla, J. S., &amp; Molina, M. J. (2026). <span class="paper-title">Weather regime diversity, transitions, and trends using hexagonal self-organizing maps</span>. <em>Journal of Geophysical Research: Atmospheres</em>, 131(8), e2025JD044874. <a class="paper-link" href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2025JD044874" target="_blank" rel="noopener">Web access</a>.
+      </li>
+
+      <li>
+        Pérez-Carrasquilla, J. S., Molina, M. J., Mayer, K. J., Dagon, K., Fasullo, J. T., &amp; Simpson, I. R. (2025). <span class="paper-title">Observed and modeled amplification of the frequency, duration, and extreme heat impacts of the Pacific trough regime</span>. <em>Earth’s Future</em>, 13(12), e2025EF007140. <a class="paper-link" href="https://doi.org/10.1029/2025EF007140" target="_blank" rel="noopener">Web access</a>.
+      </li>
+
+      <li>
+        Pérez-Carrasquilla, J. S., &amp; Molina, M. J. (2025). <span class="paper-title">An Earth-system-oriented view of the S2S predictability of North American weather regimes</span>. <em>Artificial Intelligence for the Earth Systems</em>, 4(3), 240075. <a class="paper-link" href="https://doi.org/10.1175/AIES-D-24-0075.1" target="_blank" rel="noopener">Web access</a>.
+      </li>
+
+      <li>
+        Molina, M. J., McGovern, A., Pérez-Carrasquilla, J. S., Li, X., &amp; Tanamachi, R. L. (2025). <span class="paper-title">Using Generative Artificial Intelligence Creatively in the Classroom and Research: Examples and Lessons Learned</span>. <em>Bulletin of the American Meteorological Society</em>, 106(11), E2346–E2357. <a class="paper-link" href="https://doi.org/10.1175/BAMS-D-24-0009.1" target="_blank" rel="noopener">Web access</a>.
+      </li>
+
+      <li>
+        <span class="pub-badge">Preprint</span>
+        Yang, A., Kadawedduwa, N., Wang, T., Sharma, S., Wisinski, E. F., Pérez-Carrasquilla, J. S., Hall, K. J., Calhoun, D., Starfeldt, J., Canty, T. P., &amp; Molina, M. J. (2025). <span class="paper-title">Reconstructing Tornadoes in 3D with Gaussian Splatting</span>. <em>arXiv preprint</em>, arXiv:2506.18677. <a class="paper-link" href="https://arxiv.org/abs/2506.18677" target="_blank" rel="noopener">Web access</a>.
+      </li>
+
+      <li>
+        Chen, J., Yang, S., Fang, X., Lin, S., Pérez-Carrasquilla, J. S., Cai, F., Chen, W., &amp; Wu, J. (2024). <span class="paper-title">A novel index for depicting ENSO transition with application in ENSO–East Asian summer monsoon relationship</span>. <em>Environmental Research Letters</em>, 19(12), 124066. <a class="paper-link" href="https://iopscience.iop.org/article/10.1088/1748-9326/ad9290" target="_blank" rel="noopener">Web access</a>.
+      </li>
+
+      <li>
+        Pérez-Carrasquilla, J. S., Montoya, P. A., Sánchez, J. M., Hernández, K. S., &amp; Ramírez, M. (2023). <span class="paper-title">Forecasting 24 h averaged PM2.5 concentration in the Aburrá Valley using tree-based machine learning models, global forecasts, and satellite information</span>. <em>Advances in Statistical Climatology, Meteorology and Oceanography</em>, 9(2), 121–135. <a class="paper-link" href="https://ascmo.copernicus.org/articles/9/121/2023/" target="_blank" rel="noopener">Web access</a>.
+      </li>
+
+      <li>
+        <span class="pub-badge">Conference proceeding</span>
+        Pérez-Carrasquilla, J. S., &amp; Hoyos, C. D. (2021). <span class="paper-title">Characterization of the Thermodynamics, Life Cycle and Influence Over the Mean Flow of Inner Core Processes in Tropical Cyclones: Observational and Idealized Modelling Approach</span>. <em>34th Conference on Hurricanes and Tropical Meteorology</em>. <a class="paper-link" href="https://ams.confex.com/ams/34HURR/meetingapp.cgi/Paper/373619" target="_blank" rel="noopener">Web access</a>.
+      </li>
+
+      <li>
+        <span class="pub-badge">Master’s thesis</span>
+        Pérez-Carrasquilla, J. S. (2021). <span class="paper-title">Intensificación rápida de ciclones tropicales: análisis de su variabilidad espacio-temporal y su respuesta a dinámicas del núcleo interno y forzamiento externo</span>. <em>Universidad Nacional de Colombia</em>. <a class="paper-link" href="https://repositorio.unal.edu.co/handle/unal/79714" target="_blank" rel="noopener">Web access</a>.
+      </li>
+
+      <li>
+        Hoyos, C. D., Ceballos, L. I., Pérez-Carrasquilla, J. S., Sepúlveda, J., López-Zapata, S. M., Zuluaga, M. D., &amp; Zapata, M. (2019). <span class="paper-title">Meteorological conditions leading to the 2015 Salgar flash flood: lessons for vulnerable regions in tropical complex terrain</span>. <em>Natural Hazards and Earth System Sciences</em>, 19(11), 2635–2665. <a class="paper-link" href="https://nhess.copernicus.org/articles/19/2635/2019/" target="_blank" rel="noopener">Web access</a>.
+      </li>
+
+    </ul>
+  </section>
+
+    <section id="experience" class="section-card">
+      <h2>Selected experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="role">Postdoctoral Scholar</div>
+          <div class="place">UChicago Data Science Institute, AICE: AI for Climate Initiative | Chicago, IL | 2026–Present</div>
+          <ul>
+            <li>Developing interpretable generative AI frameworks for subseasonal-to-seasonal forecasting of extreme events.</li>
+            <li>Working on uncertainty quantification and reduction in regional climate projections.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="role">PhD, Atmospheric and Oceanic Science</div>
+          <div class="place">University of Maryland, Department of Atmospheric and Oceanic Science | 2022–2026</div>
+          <ul>
+            <li>Developed machine-learning methods to diagnose sources of subseasonal predictability in North American weather regimes.</li>
+            <li>Analyzed weather regime variability and long-term changes using reanalysis data, climate model output, and large ensembles.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="role">ASP Graduate Visitor</div>
+          <div class="place">US NSF National Center for Atmospheric Research | Boulder, CO | 2024</div>
+          <ul>
+            <li>Studied changes in North American weather regimes and associated surface extremes using Earth system model ensembles.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="role">Research Scientist and Software Developer</div>
+          <div class="place">Corporación Clima S.A.S. | Medellín, Colombia | 2020–2021</div>
+          <ul>
+            <li>Developed machine-learning forecasts for meteorological, hydrological, energy-sector, and insurance-sector applications.</li>
+            <li>Built automated hurricane risk reports using National Weather Service model output.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="role">Research Scientist</div>
+          <div class="place">SIATA Early Warning System of the Aburrá Valley | Medellín, Colombia | 2018–2021</div>
+          <ul>
+            <li>Developed machine-learning forecasts of air quality and analyzed drivers of convection and poor air quality.</li>
+            <li>Led atmospheric sampling campaigns and communicated scientific results with public-sector and community stakeholders.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" class="section-card">
+      <h2>Awards and honors</h2>
+      <ul class="awards">
+        <li><strong>2026.</strong> Best Student Oral Presentation, American Meteorological Society’s 39th Conference on Climate Variability and Change.</li>
+        <li><strong>2025.</strong> Atmospheric and Oceanic Science Prize for Publication Excellence, University of Maryland.</li>
+        <li><strong>2025.</strong> Dr. Eugene Rasmusson Graduate Student Fellowship, The Graduate School, University of Maryland.</li>
+        <li><strong>2025.</strong> Dr. Ann G. Wylie Dissertation Fellowship, The Graduate School, University of Maryland.</li>
+        <li><strong>2025.</strong> Travel award for the Summer CESM Workshop, NSF NCAR.</li>
+        <li><strong>2024.</strong> Dr. Richard Payne Graduate Fellowship, College of Computer, Mathematical and Natural Sciences, University of Maryland.</li>
+        <li><strong>2024.</strong> Best Student Oral Presentation (2nd place), American Meteorological Society’s 23rd Conference on Artificial Intelligence for Environmental Science.</li>
+        <li><strong>2024.</strong> US NSF NCAR Advanced Study Program Graduate Student Fellowship.</li>
+        <li><strong>2022–Present.</strong> Exploratory Allocation on NSF NCAR High-Performance Computing systems.</li>
+        <li><strong>2021.</strong> College of Computer, Mathematical, and Natural Sciences Dean’s Fellowship, University of Maryland.</li>
+        <li><strong>2020.</strong> Facultad de Minas Scholarship, Universidad Nacional de Colombia.</li>
+      </ul>
+    </section>
+
+    <section id="connect" class="section-card">
+      <h2>Connect</h2>
+      <p>Contact: <a href="mailto:jspecar@gmail.com">jspecar@gmail.com</a></p>
+      <ul class="social-links">
+        <li><a href="https://scholar.google.com/citations?hl=es&amp;user=lzLdYv0AAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+        <li><a href="https://docs.google.com/viewer?url=https://docs.google.com/document/d/1ByZ5PTBvfXLNJt3EETAfL-QalRes50p5oyyn3EVw5fY/export?format=pdf" target="_blank" rel="noopener">Academic CV</a></li>
+        <li><a href="https://docs.google.com/viewer?url=https://docs.google.com/document/d/1Oj8EdJpYJV6awQlTw8J3gytJghvHCAebY5cOSEevL3M/export?format=pdf" target="_blank" rel="noopener">Selected Resume</a></li>
+        <li><a href="https://www.researchgate.net/profile/Jhayron-Perez-Carrasquilla" target="_blank" rel="noopener">ResearchGate</a></li>
+        <li><a href="https://github.com/jhayron-perez" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://orcid.org/0000-0001-9672-8490" target="_blank" rel="noopener">ORCID</a></li>
+        <li><a href="https://www.linkedin.com/in/jhayron-s-p%C3%A9rez-carrasquilla-b7930321a/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Copyright © <script>document.write(new Date().getFullYear());</script> Jhayron S. Pérez-Carrasquilla
+  </footer>
+</body>
+</html>
